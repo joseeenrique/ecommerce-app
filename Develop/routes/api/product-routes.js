@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       'product_name',
       'price',
       
-    ]
+    ],
     .then(userData => res.json(userData))
     .catch(err => {
       console.log(err);
@@ -32,7 +32,11 @@ Product.findOne({
     'id',
     'product_name',
     'price'
-  ]
+  ],
+  .then(productData => res.json(productData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
 })
 
 });
